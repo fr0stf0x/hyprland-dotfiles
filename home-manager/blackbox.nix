@@ -11,6 +11,11 @@ in {
     sessionVariables.TERMINAL = "blackbox";
   };
 
+  # TEST
+  dconf = {
+    settings."com/github/stunkymonkey/nautilus-open-any-terminal".terminal = "blackbox";
+  };
+
   home.file.".local/share/blackbox/schemes/charmful.json".text = builtins.toJSON {
     name = "Charmful";
     foreground-color = "#b2b5b3";
@@ -46,8 +51,8 @@ in {
 
   dconf.settings."com/raggesilver/BlackBox" = {
     command-as-login-shell = true;
-    custom-shell-command = "${pkgs.tmux}/bin/tmux";
-    use-custom-command = true;
+    # custom-shell-command = "${pkgs.tmux}/bin/tmux";
+    # use-custom-command = true;
     font = "CaskaydiaCove Nerd Font 12";
     fill-tabs = true;
     show-headerbar = false;

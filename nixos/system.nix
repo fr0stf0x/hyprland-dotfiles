@@ -23,7 +23,7 @@
 
   # packages
   environment.systemPackages = with pkgs; [
-    home-manager
+    #home-manager
     neovim
     git
     wget
@@ -47,15 +47,15 @@
   '';
 
   # kde connect
-  networking.firewall = rec {
-    allowedTCPPortRanges = [
-      {
-        from = 1714;
-        to = 1764;
-      }
-    ];
-    allowedUDPPortRanges = allowedTCPPortRanges;
-  };
+  # networking.firewall = rec {
+  #   allowedTCPPortRanges = [
+  #     {
+  #       from = 1714;
+  #       to = 1764;
+  #     }
+  #   ];
+  #   allowedUDPPortRanges = allowedTCPPortRanges;
+  # };
 
   # network
   networking.networkmanager.enable = true;
@@ -68,15 +68,26 @@
   };
 
   # bootloader
-  boot = {
-    tmp.cleanOnBoot = true;
-    supportedFilesystems = ["ntfs"];
-    loader = {
-      timeout = 2;
-      systemd-boot.enable = true;
-      efi.canTouchEfiVariables = true;
+
+  boot.loader = {
+    efi.canTouchEfiVariables = true;
+    grub = {
+      enable = true;
+      devices = [ "nodev" ];
+      efiSupport = true;
+      useOSProber = true;
     };
   };
+  
+  # boot = {
+  #   tmp.cleanOnBoot = true;
+  #   supportedFilesystems = ["ntfs"];
+  #   loader = {
+  #     timeout = 2;
+  #     systemd-boot.enable = true;
+  #     efi.canTouchEfiVariables = true;
+  #   };
+  # };
 
   system.stateVersion = "23.05";
 }

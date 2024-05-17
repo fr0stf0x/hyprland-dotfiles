@@ -34,39 +34,6 @@
           ];
         };
     };
-
-    # macos
-    # darwinConfigurations = {
-    #   "macos" = let
-    #     username = "thaotang";
-    #   in
-    #     nix-darwin.lib.darwinSystem {
-    #       modules = [
-    #         ./macos/macos.nix
-    #         home-manager.darwinModules.home-manager
-    #         {
-    #           users.users.${username} = {
-    #             name = username;
-    #             home = "/Users/${username}";
-    #           };
-    #           home-manager = {
-    #             useGlobalPkgs = true;
-    #             useUserPackages = true;
-    #             extraSpecialArgs = {inherit inputs;};
-    #             users."${username}" = {
-    #               home.username = username;
-    #               home.homeDirectory = "/Users/${username}";
-    #               imports = [./macos/home.nix];
-    #             };
-    #           };
-    #           networking = {
-    #             hostName = "macos";
-    #             computerName = "macos";
-    #           };
-    #         }
-    #       ];
-    #     };
-    # };
   };
 
   inputs = {
@@ -77,10 +44,6 @@
       inputs.nixpkgs.follows = "nixpkgs";
     };
 
-    nix-darwin = {
-      url = "github:LnL7/nix-darwin";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
 
     hyprland.url = "git+https://github.com/hyprwm/Hyprland?submodules=1";
 

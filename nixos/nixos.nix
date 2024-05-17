@@ -11,13 +11,11 @@ in {
     ./audio.nix
     ./locale.nix
     ./nautilus.nix
-    ./laptop.nix
     ./hyprland.nix
     ./gnome.nix
   ];
 
   hyprland.enable = true;
-  asusLaptop.enable = false;
   gnome.enable = false;
 
   users.users.${username} = {
@@ -43,6 +41,7 @@ in {
       home.username = username;
       home.homeDirectory = "/home/${username}";
       imports = [
+        # ../home-manager/nvim.nix
         ../home-manager/ags.nix
         ../home-manager/blackbox.nix
         ../home-manager/browser.nix
@@ -56,6 +55,7 @@ in {
         ../home-manager/starship.nix
         ../home-manager/theme.nix
         ../home-manager/tmux.nix
+        # ../home-manager/wezterm.nix
         ./home.nix
       ];
     };
@@ -65,7 +65,6 @@ in {
   #   gnome.configuration = {
   #     system.nixos.tags = ["Gnome"];
   #     hyprland.enable = lib.mkForce false;
-  #     asusLaptop.enable = lib.mkForce true;
   #     gnome.enable = lib.mkForce true;
   #   };
   # };

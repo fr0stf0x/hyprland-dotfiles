@@ -47,12 +47,14 @@ in {
         # "eDP-1, 1920x1080, 0x0, 1"
         # "HDMI-A-1, 2560x1440, 1920x0, 1"
         ",preferred,auto,1"
+        "DP-1, 2560x1440@180, 0x0, 1.25"
+
       ];
 
       general = {
         layout = "dwindle";
         resize_on_border = true;
-        no_cursor_warps = true;
+        #no_cursor_warps = true;
       };
 
       misc = {
@@ -61,7 +63,7 @@ in {
       };
 
       input = {
-        kb_layout = "";
+        kb_layout = "us";
         follow_mouse = 1;
         touchpad = {
           natural_scroll = "yes";
