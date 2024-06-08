@@ -4,9 +4,9 @@
   '';
 in {
   home = {
-    packages = with pkgs; [
-      blackbox-terminal
-      # xterm
+    packages = [
+      pkgs.blackbox-terminal
+      xterm
     ];
     sessionVariables.TERMINAL = "blackbox";
   };
@@ -51,8 +51,8 @@ in {
 
   dconf.settings."com/raggesilver/BlackBox" = {
     command-as-login-shell = true;
-    # custom-shell-command = "${pkgs.tmux}/bin/tmux";
-    # use-custom-command = true;
+    custom-shell-command = "${pkgs.tmux}/bin/tmux";
+    use-custom-command = true;
     font = "CaskaydiaCove Nerd Font 12";
     fill-tabs = true;
     show-headerbar = false;

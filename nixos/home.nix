@@ -32,10 +32,7 @@
     "file://${home}/Videos"
     "file://${home}/Downloads"
     "file://${home}/Desktop"
-    "file://${home}/Work"
-    "file://${home}/Projects"
-    "file://${home}/Vault"
-    "file://${home}/School"
+    "file://${home}/dev Dev"
     "file://${home}/.config Config"
   ];
 

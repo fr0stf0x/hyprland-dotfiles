@@ -4,6 +4,7 @@
   ...
 }: let
   username = "thaotang";
+  password = "Just1game";
 in {
   imports = [
     /etc/nixos/hardware-configuration.nix
@@ -20,7 +21,7 @@ in {
 
   users.users.${username} = {
     isNormalUser = true;
-    initialPassword = username;
+    initialPassword = password;
     extraGroups = [
       "nixosvmtest"
       "networkmanager"
@@ -31,6 +32,8 @@ in {
       "docker"
     ];
   };
+
+  services.getty.autologinUser = username;
 
   home-manager = {
     backupFileExtension = "backup";

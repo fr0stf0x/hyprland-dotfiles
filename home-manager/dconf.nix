@@ -2,7 +2,10 @@
 with lib.hm.gvariant; {
   dconf.settings = {
     "org/gnome/desktop/input-sources" = {
-      sources = [(mkTuple ["xkb" "hu"])];
+      sources = [
+        (mkTuple ["xkb" "us"]) 
+        (mkTuple ["ibus" "Bamboo"])
+      ];
       xkb-options = ["terminate:ctrl_alt_bksp"];
     };
 
@@ -105,6 +108,7 @@ with lib.hm.gvariant; {
     "org/gnome/shell" = {
       favorite-apps = [
         "firefox.desktop"
+        "com.raggesilver.BlackBox.desktop"
         "org.wezfurlong.wezterm.desktop"
         "org.gnome.Nautilus.desktop"
         "org.gnome.Calendar.desktop"

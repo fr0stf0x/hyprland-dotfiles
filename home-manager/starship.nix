@@ -3,6 +3,7 @@
   pkgs,
   ...
 }: let
+  cfg = config.programs.zoxide;
   lang = icon: color: {
     symbol = icon;
     format = "[$symbol ](${color})";
@@ -130,5 +131,12 @@ in {
     extraConfig = ''
       use ${config.xdg.cacheHome}/starship/init.nu
     '';
+  };
+
+  programs.zoxide = {
+    enable = true;
+    enableZshIntegration = true;
+    enableBashIntegration = true;
+    enableNushellIntegration = true;
   };
 }

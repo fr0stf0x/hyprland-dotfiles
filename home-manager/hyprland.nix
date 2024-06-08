@@ -40,7 +40,8 @@ in {
       exec-once = [
         "ags -b hypr"
         "hyprctl setcursor Qogir 24"
-        "transmission-gtk"
+        "ibus-daemon -drx"
+        # "transmission-gtk"
       ];
 
       monitor = [
@@ -70,7 +71,7 @@ in {
           disable_while_typing = true;
           drag_lock = true;
         };
-        sensitivity = 0;
+        sensitivity = -1.5;
         float_switch_override_focus = 2;
       };
 
@@ -110,7 +111,7 @@ in {
       bind = let
         binding = mod: cmd: key: arg: "${mod}, ${key}, ${cmd}, ${arg}";
         mvfocus = binding "SUPER" "movefocus";
-        ws = binding "SUPER" "workspace";
+        ws = binding "CTRL" "workspace";
         resizeactive = binding "SUPER CTRL" "resizeactive";
         mvactive = binding "SUPER ALT" "moveactive";
         mvtows = binding "SUPER SHIFT" "movetoworkspace";
@@ -127,7 +128,8 @@ in {
           "SHIFT,Print,    ${e} -r 'recorder.screenshot(true)'"
           "SUPER, Return, exec, xterm" # xterm is a symlink, not actually xterm
           "SUPER, W, exec, firefox"
-          "SUPER, E, exec, wezterm -e lf"
+          # "SUPER, T, exec, wezterm -e lf"
+          "SUPER, T, exec, blackbox"
 
           # youtube
           ", XF86Launch1,  exec, ${yt}"

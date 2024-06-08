@@ -1,6 +1,7 @@
-{
+{pkgs, ...}: {
   # Set your time zone.
   time.timeZone = "Asia/Ho_Chi_Minh";
+  time.hardwareClockInLocalTime = true;
 
   # Select internationalisation properties.
   i18n.defaultLocale = "en_US.UTF-8";
@@ -15,6 +16,13 @@
     LC_PAPER = "vi_VN";
     LC_TELEPHONE = "vi_VN";
     LC_TIME = "vi_VN";
+  };
+  
+  i18n.inputMethod = {
+    enabled = "ibus";
+    ibus.engines = with pkgs.ibus-engines; [
+      bamboo
+    ];
   };
 
   console.useXkbConfig = true;

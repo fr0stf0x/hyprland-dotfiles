@@ -125,7 +125,7 @@ in {
       bind-key -T copy-mode-vi y send-keys -X copy-selection-and-cancel
       bind-key b set-option status
       bind '\' split-window -v -c "#{pane_current_path}"
-      bind / split-window -h -c "#{pane_current_path}"
+      bind '/' split-window -h -c "#{pane_current_path}"
 
       set-option -g status-right-length 100
       set-option -g @indicator_color "yellow"

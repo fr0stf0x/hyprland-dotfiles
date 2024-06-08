@@ -1,19 +1,14 @@
 {pkgs, ...}: let
+  dotfiles = "$HOME/dev/hyprland-dotfiles";
   symlink = pkgs.writeShellScript "symlink" ''
     if [[ "$1" == "-r" ]]; then
-      rm -rf "$HOME/.config/nvim"
       rm -rf "$HOME/.config/ags"
-      rm -rf "$HOME/.config/wezterm"
     fi
 
     if [[ "$1" == "-a" ]]; then
-      rm -rf "$HOME/.config/nvim"
       rm -rf "$HOME/.config/ags"
-      rm -rf "$HOME/.config/wezterm"
 
-      ln -s "$HOME/Projects/dotfiles/nvim" "$HOME/.config/nvim"
-      ln -s "$HOME/Projects/dotfiles/ags" "$HOME/.config/ags"
-      ln -s "$HOME/Projects/dotfiles/wezterm" "$HOME/.config/wezterm"
+      ln -s "${dotfiles}/ags" "$HOME/.config/ags"
     fi
   '';
   nx-switch = pkgs.writeShellScriptBin "nx-switch" ''

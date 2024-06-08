@@ -19,7 +19,7 @@
     package = pkgs.adw-gtk3;
   };
   font = {
-    name = "Ubuntu Nerd Font";
+    name = "Noto Sans";
     package = nerdfonts;
   };
   cursorTheme = {
@@ -34,6 +34,7 @@
 in {
   home = {
     packages = with pkgs; [
+      noto-fonts
       cantarell-fonts
       font-awesome
       theme.package
